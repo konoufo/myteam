@@ -1,8 +1,9 @@
 {% extends "base.html" %}
 
 {% block body_base %}
-<section style="padding:72px 0;">
-    <div class="container">
+<section>
+    <h2 class="text-center">Équipes en lice pour le <span class="text-warning">Génie en herbe ACAFUL</span></h2>
+    <div class="container" style="padding:72px 0;">
         <div class="row">
             {% for team, members in object_list %}
                 <div class="col-md-4">

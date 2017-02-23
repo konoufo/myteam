@@ -1,7 +1,7 @@
 <div class="list-group">
     <a href="#" class="list-group-item active">
       <h4 class="list-group-item-heading">{{team}}</h4>
-        <span class="badge">{{members.__len__}}</span>
+        <span class="badge" style="position:relative; top:-26px;">{{members|length}}</span>
     </a>
     {% for member in members %}
         <a href="#" class="list-group-item">
