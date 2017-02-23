@@ -1,0 +1,29 @@
+section.tight {
+padding: 8px 0;
+}
+
+section.full-bg {
+    background-image: url('/static/img/home_1024x768.jpg');
+    background-position: 50% 50%;
+    min-width: 100%;
+    background-size: cover;
+}
+
+.parallax {
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.fullwidth {
+    width: 100%;
+}
+
+/* special theme */
+body.transparent-home .main-home{
+    margin-top:-73px;
+    padding: 0;
+}
+
+body.transparent-home .main-home .container {
+    padding-top: 150px;
+}

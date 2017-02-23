@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block body_base %}
+<section style="padding:72px 0;">
+    <div class="container">
+        <div class="row">
+            {% for team, members in object_list %}
+                <div class="col-md-4">
+                    {% include "teams/team.html" %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "theme_bootstrap/base.html" %}
+
+{% load static from staticfiles %}
+
+
+{% block styles %}
+    {% include "_styles.html" %}
+{% endblock %}
+
+{% block head_title_base %}Génie en herbe ACAFUL{% endblock %}
+
+{% block body_class %}transparent-home{% endblock %}
+{% block body_id %}colored{% endblock %}
+
+{% block body_extra_attributes %}style="background-color:#F5F7FA;"{% endblock %}
+
+{% block topbar_base %}
+
+{% endblock %}
+
+
+{% block footer %}
+
+{% endblock %}
+
+
+{% block scripts %}
+    {% include "_scripts.html" %}
+{% endblock %}
+
+{% block extra_body_base %}
+    {% block extra_body %}{% endblock %}
+{% endblock %}

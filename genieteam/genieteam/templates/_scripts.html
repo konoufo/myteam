@@ -1,0 +1,48 @@
+{% load static from staticfiles %}
+{% block _script_global_vars %}
+
+{% endblock %}
+<script src='{% static "js/site-5e73bbeeb0.js" %}'></script>
+
+
+<script>
+    CSRF_TOKEN = '{{csrf_token}}';
+    // any button .form-submit element triggers AJAX "submit"
+    $(".form-submit").click(function(){
+        // formID is "data-form" attribute of button
+        var form = $("#" + $(this).attr("data-form"));
+        if (form){
+            $.ajax({
+                url: form.attr('action'),
+                method: 'POST',
+                data: form.find('input, select, textarea').not('input[name=csrfmiddlewaretoken]').serialize() + '&'
+                    + $.param({'csrfmiddlewaretoken': CSRF_TOKEN}),
+                context: form,
+            }).done(function(data, status, xhr){
+                if (xhr.status == 278){
+                    var res;
+                    try {
+                        res = JSON.parse(data);
+
+                    } catch {
+                        console.log('Response data is not json.');
+                    }
+                    data = (res && res.html) || '<h3 class="text-success text-center" >Redirection en cours...</h3>';
+                    setTimeout(function(){
+                        window.location.href = xhr.getResponseHeader("Location");
+                    }, res.timeout || 3000);
+                }
+                if (data) form.parent().html(data);
+            })
+        }
+    })
+    // error state of input is removed after change
+    $(".has-error input:not([type=checkbox])").change(function(){
+        $(this).siblings(".help-block").text('');
+        $(this).parents(".has_error").removeClass("has_error");
+    })
+</script>
+
+{% block _scripts %}
+
+{% endblock %}

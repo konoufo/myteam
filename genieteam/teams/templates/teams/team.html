@@ -1,0 +1,11 @@
+<div class="list-group">
+    <a href="#" class="list-group-item active">
+      <h4 class="list-group-item-heading">{{team}}</h4>
+        <span class="badge">{{members.__len__}}</span>
+    </a>
+    {% for member in members %}
+        <a href="#" class="list-group-item">
+          <p class="list-group-item-text text-success">{{member}}</p>
+        </a>
+    {% endfor %}
+</div>
